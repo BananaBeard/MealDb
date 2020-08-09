@@ -1,0 +1,27 @@
+<resources>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor">@color/colorBgDefault</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+    <style name="TextHeaderDefault" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorTextDefault</item>
+        <item name="android:textSize">24sp</item>
+        <item name="fontFamily">@font/raleway_bold</item>
+        <item name="android:alpha">.8</item>
+    </style>
+    <style name="TextBodyDefault" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorTextDefault</item>
+        <item name="android:textSize">15sp</item>
+        <item name="fontFamily">@font/raleway_bold</item>
+        <item name="android:alpha">.6</item>
+    </style>
+    <style name="TextSearch" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorTextDefault</item>
+        <item name="android:textSize">17sp</item>
+        <item name="fontFamily">@font/raleway_regular</item>
+        <item name="drawableTint">@color/colorTextDefault</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:textColorHint">@color/colorSearchHint</item>
+    </style>
+</resources>

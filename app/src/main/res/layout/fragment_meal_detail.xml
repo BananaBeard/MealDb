@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.kovalenko.mealdb.features.meals.viewmodel.MealDetailViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:background="@color/colorBgDefault"
+            android:clipToPadding="false"
+            android:padding="20dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/image_meal"
+                    imageUrl="@{viewmodel.meal.thumb}"
+                    placeholder="@{@drawable/ic_lunch}"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/image_meal"
+                    tools:src="@drawable/image_meal"
+                    tools:ignore="ContentDescription" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_name"
+                style="@style/TextHeaderDefault"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:text="@{viewmodel.meal.name}"
+                android:textColor="@color/colorAccent"
+                app:layout_constraintEnd_toStartOf="@id/button_youtube"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_image"
+                tools:text="Really Cool Meal"/>
+
+            <ImageView
+                android:id="@+id/button_youtube"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:alpha=".8"
+                android:maxHeight="50dp"
+                android:onClick="@{() -> viewmodel.onLink(viewmodel.meal.youtube)}"
+                android:padding="5dp"
+                android:src="@drawable/ic_youtube"
+                android:tint="@color/colorTextDefault"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/text_name"
+                app:layout_constraintTop_toTopOf="@id/text_name"
+                tools:ignore="ContentDescription" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_category"
+                style="@style/TextBodyDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/category"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_name" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_category_name"
+                style="@style/TextBodyDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="@{viewmodel.meal.category}"
+                app:layout_constraintStart_toEndOf="@id/text_category"
+                app:layout_constraintTop_toTopOf="@id/text_category"
+                tools:text="Chicken" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_instructions_header"
+                style="@style/TextHeaderDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/instructions"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_category" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_instructions"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/colorBgSection"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_instructions_header">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/text_instructions"
+                    style="@style/TextBodyDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="20dp"
+                    android:paddingTop="20dp"
+                    android:paddingEnd="20dp"
+                    android:paddingBottom="20dp"
+                    android:text="@{viewmodel.meal.instructions}"
+                    tools:text="In a wok add chicken broth and wait for it to boil.\r\nNext add salt, sugar, white pepper, sesame seed oil.\r\nWhen the chicken broth is boiling add the vegetables to the wok.\r\nTo thicken the sauce, whisk together 1 Tablespoon of cornstarch and 2 Tablespoon of water in a bowl and slowly add to your soup until it's the right thickness.\r\nNext add 1 egg slightly beaten with a knife or fork and add it to the soup slowly and stir for 8 seconds\r\nServe the soup in a bowl and add the green onions on top." />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_ingredients_header"
+                style="@style/TextHeaderDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/ingredients"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_instructions" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_ingredients"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/colorBgSection"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_ingredients_header">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_ingredients"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:overScrollMode="never"
+                    tools:listitem="@layout/item_ingredient"
+                    tools:padding="10dp" />
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

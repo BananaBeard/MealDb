@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.kovalenko.mealdb.features.meals.viewmodel.MealsViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:background="@color/colorBgDefault"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBgDefault"
+            android:elevation="0dp"
+            android:fitsSystemWindows="true"
+            android:stateListAnimator="@animator/appbar_animator">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorBgDefault"
+                android:elevation="0dp"
+                android:paddingStart="20dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="5dp"
+                app:contentInsetStart="0dp"
+                app:layout_scrollFlags="scroll|enterAlways|snap">
+
+                <EditText
+                    style="@style/TextSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_search"
+                    android:drawableStart="@drawable/ic_search"
+                    android:hint="@string/search_for_meals"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:padding="10dp"
+                    android:text="@={viewmodel.nameInput}" />
+            </com.google.android.material.appbar.MaterialToolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_meals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:listitem="@layout/item_meal"
+            tools:padding="20dp" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

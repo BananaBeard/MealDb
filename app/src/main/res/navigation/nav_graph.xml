@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mealsFragment">
+    <fragment
+        android:id="@+id/mealsFragment"
+        android:name="com.kovalenko.mealdb.features.meals.ui.MealsFragment"
+        android:label="MealsFragment"
+        tools:layout="@layout/fragment_meals">
+        <action
+            android:id="@+id/mealDetail"
+            app:destination="@id/mealDetailFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/mealDetailFragment"
+        android:name="com.kovalenko.mealdb.features.meals.ui.MealDetailFragment"
+        android:label="MealDetailFragment"
+        tools:layout="@layout/fragment_meal_detail">
+        <argument
+            android:name="mealId"
+            app:argType="string" />
+    </fragment>
+</navigation>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="meal"
+            type="com.kovalenko.mealdb.features.meals.model.domain.Meal" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            app:cardBackgroundColor="@color/colorBgSection"
+            app:cardCornerRadius="25dp"
+            app:cardElevation="0dp">
+
+            <ImageView
+                android:id="@+id/image_meal"
+                imageUrl="@{meal.thumb}"
+                placeholder="@{@drawable/ic_lunch}"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/progress_meal"
+                tools:src="@drawable/image_meal" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text_meal_name"
+            style="@style/TextHeaderDefault"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@{meal.name}"
+            tools:text="Really Cool Meal" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_category"
+                style="@style/TextBodyDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/category" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_category_name"
+                style="@style/TextBodyDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="@{meal.category}"
+                tools:text="Chicken" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

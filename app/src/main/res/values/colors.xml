@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAccent">#D34536</color>
+    <color name="colorBgDefault">#F5E9DD</color>
+    <color name="colorBgSection">#f6f0ea</color>
+    <color name="colorTextDefault">#121212</color>
+    <color name="colorSearchHint">#808080</color>
+    <color name="colorBgSearch">#f7f7f7</color>
+</resources>

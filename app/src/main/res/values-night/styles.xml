@@ -1,0 +1,7 @@
+<resources>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor">@color/colorBgDefault</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>
