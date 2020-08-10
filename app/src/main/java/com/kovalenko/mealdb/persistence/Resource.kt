@@ -1,7 +1,5 @@
 package com.kovalenko.mealdb.persistence
 
-
-
 import com.kovalenko.mealdb.util.Status
 import com.kovalenko.mealdb.util.Status.SUCCESS
 import com.kovalenko.mealdb.util.Status.ERROR
